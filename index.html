@@ -204,7 +204,7 @@
             text-align: right;
         }
 
-        /* Modal / Pop-up Form */
+        /* Modals */
         .modal {
             display: none;
             position: fixed;
@@ -324,10 +324,10 @@
                 <h3>Home Help</h3>
                 <p>Linis at Ayos</p>
             </div>
-            <div class="card" onclick="filterCategory('Tech Support')">
-                <div class="icon">📱</div>
-                <h3>Tech Support</h3>
-                <p>Tulong sa Gadget</p>
+            <div class="card" onclick="openPetGuide()">
+                <div class="icon">🚨</div>
+                <h3>Pet Guide & Vet</h3>
+                <p>Emergency & Bilin</p>
             </div>
         </div>
 
@@ -369,7 +369,7 @@
 
     </div>
 
-    <!-- Pop-up Modal Form -->
+    <!-- Pop-up Modal Form (Post Job) -->
     <div class="modal" id="jobModal">
         <div class="modal-content">
             <h3>Mag-post ng Bagong Raket</h3>
@@ -386,6 +386,38 @@
                 <button class="btn-cancel" onclick="closeModal()">I-cancel</button>
                 <button class="btn-submit" onclick="addJob()">I-post Na</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Pet Care Guide & Emergency Modal -->
+    <div class="modal" id="petGuideModal">
+        <div class="modal-content">
+            <h3>🐾 Pet Care & Emergency Guide</h3>
+            <p style="font-size: 0.8rem; color: #6b7280; margin-bottom: 12px;">
+                Gamitin ito para sa mabilisang bilin sa Pet Sitter at tawag sa vet.
+            </p>
+
+            <!-- Quick Emergency Contacts -->
+            <div style="background: #fee2e2; border-left: 4px solid #ef4444; padding: 10px; border-radius: 8px; margin-bottom: 12px;">
+                <strong style="color: #991b1b; font-size: 0.85rem;">🚨 Emergency Contacts:</strong>
+                <p style="font-size: 0.8rem; color: #7f1d1d; margin-top: 4px;">
+                    • Pinakamalapit na Vet: <strong>(02) 8123-4567</strong><br>
+                    • Barangay Hotline: <strong>161</strong>
+                </p>
+            </div>
+
+            <!-- Quick Pet Feeding Calculator / Checklist -->
+            <label style="font-size: 0.85rem; font-weight: bold;">📋 Mabilis na Bilin para sa Sitter:</label>
+            <input type="text" id="petName" placeholder="Pangalan ng Alaga (hal. Muning)" style="margin-top: 6px;">
+            <input type="text" id="petInstructions" placeholder="Bilin sa Pagpapakain / Gamot (hal. 2 scoop 8am)">
+
+            <button class="btn-submit" style="width: 100%; margin-bottom: 8px;" onclick="savePetNote()">
+                💾 I-save ang Bilin (Offline)
+            </button>
+
+            <div id="savedNote" style="font-size: 0.8rem; background: #f3f4f6; padding: 8px; border-radius: 6px; display: none; margin-bottom: 12px;"></div>
+
+            <button class="btn-cancel" style="width: 100%;" onclick="closePetGuide()">Isara</button>
         </div>
     </div>
 
@@ -418,6 +450,36 @@
             document.getElementById('jobModal').style.display = 'none';
         }
 
+        function openPetGuide() {
+            document.getElementById('petGuideModal').style.display = 'flex';
+            const existingNote = localStorage.getItem('sukiPetNote');
+            if (existingNote) {
+                document.getElementById('savedNote').style.display = 'block';
+                document.getElementById('savedNote').innerHTML = '<strong>Huling Bilin:</strong> ' + existingNote;
+            }
+        }
+
+        function closePetGuide() {
+            document.getElementById('petGuideModal').style.display = 'none';
+        }
+
+        function savePetNote() {
+            const name = document.getElementById('petName').value;
+            const notes = document.getElementById('petInstructions').value;
+
+            if (!name || !notes) {
+                alert('Paki-sulat ang Pangalan at Bilin para sa alaga!');
+                return;
+            }
+
+            const fullNote = name + ': ' + notes;
+            localStorage.setItem('sukiPetNote', fullNote);
+
+            document.getElementById('savedNote').style.display = 'block';
+            document.getElementById('savedNote').innerHTML = '<strong>Na-save na Bilin:</strong> ' + fullNote;
+            alert('Na-save na sa iyong phone memory! Mababasa ito kahit walang internet.');
+        }
+
         function addJob() {
             const title = document.getElementById('jobTitle').value;
             const category = document.getElementById('jobCategory').value;
@@ -444,7 +506,6 @@
             jobList.prepend(newJob);
             closeModal();
 
-            // Reset inputs
             document.getElementById('jobTitle').value = '';
             document.getElementById('jobLocation').value = '';
             document.getElementById('jobPrice').value = '';
