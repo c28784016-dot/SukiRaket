@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SukiRaket - Barangay Micro-Jobs & Pet Care</title>
+    <!-- PWA Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f3f4f6;
+            color: #1f2937;
+            padding-bottom: 70px;
+        }
+        header {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .container {
+            padding: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .banner-ad {
+            background-color: #e5e7eb;
+            border: 2px dashed #9ca3af;
+            text-align: center;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: #4b5563;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .card {
+            background: white;
+            padding: 16px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            border: 1px solid #e5e7eb;
+        }
+        .card:active {
+            transform: scale(0.97);
+            background-color: #f8fafc;
+        }
+        .card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+        .card h3 {
+            font-size: 1rem;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        .card p {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        .action-btn {
+            display: block;
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+            margin-bottom: 16px;
+        }
+        .action-btn:active {
+            background-color: #1d4ed8;
+        }
+        .job-list {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .job-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .job-item:last-child {
+            border-bottom: none;
+        }
+        .job-info h4 {
+            font-size: 0.95rem;
+            color: #1f2937;
+        }
+        .job-info span {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+        .job-price {
+            font-weight: bold;
+            color: #16a34a;
+            font-size: 0.9rem;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 30px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SukiRaket</h1>
+        <p>Barangay Micro-Jobs & Pet Care Hub</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Pwede mong ilagay ang Monetag/HilltopAds script dito o sa gilid -->
+        <div class="banner-ad">
+            [ Ad Placeholder / Ilagay ang Monetag script dito ]
+        </div>
+
+        <div class="section-title">Pumili ng Kategorya</div>
+        <div class="grid-menu">
+            <div class="card" onclick="alert('Bukod-tanging Pet Care: Pagpapakain, Dog Walking, at iba pa.')">
+                <div class="icon">🐾</div>
+                <h3>Pet Care</h3>
+                <p>Alaga at Pakain</p>
+            </div>
+            <div class="card" onclick="alert('Errands: Pila service, Pabili, Palengke runner.')">
+                <div class="icon">🛒</div>
+                <h3>Errands</h3>
+                <p>Pabili at Pila</p>
+            </div>
+            <div class="card" onclick="alert('Home Help: Pagdidilig ng halaman, Car wash, Tapon basura.')">
+                <div class="icon">🧹</div>
+                <h3>Home Help</h3>
+                <p>Linis at Ayos</p>
+            </div>
+            <div class="card" onclick="alert('Tech & Support: Pagtulong sa cellphone, printing, at iba pa.')">
+                <div class="icon">📱</div>
+                <h3>Tech Support</h3>
+                <p>Tulong sa Gadget</p>
+            </div>
+        </div>
+
+        <button class="action-btn" onclick="alert('Form para mag-post ng raket ay lalabas dito.')">+ Mag-post ng Raket / Trabaho</button>
+
+        <div class="section-title">Mga Bagong Raket sa Paligid</div>
+        <div class="job-list">
+            <div class="job-item">
+                <div class="job-info">
+                    <h4>Pakain ng Aso (Brgy. Hall area)</h4>
+                    <span>20 minuto ang nakalipas • 0.5 km</span>
+                </div>
+                <div class="job-price">₱150</div>
+            </div>
+            <div class="job-item">
+                <div class="job-info">
+                    <h4>Pila sa Bayad Center</h4>
+                    <span>Kanina lang • 1.2 km</span>
+                </div>
+                <div class="job-price">₱100</div>
+            </div>
+            <div class="job-item">
+                <div class="job-info">
+                    <h4>Pagdidilig ng mga Halaman</h4>
+                    <span>1 oras ang nakalipas • 0.3 km</span>
+                </div>
+                <div class="job-price">₱120</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 SukiRaket. Libreng Serbisyo sa Komunidad.
+    </footer>
+
+    <!-- Dito mo pwede ilagay ang JavaScript o Monetag Ad Scripts kung kinakailangan -->
+    <script>
+        // Placeholder para sa future features
+        console.log("SukiRaket PWA Loaded successfully!");
+    </script>
+</body>
+</html>
