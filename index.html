@@ -18,12 +18,12 @@
         body {
             background-color: #f3f4f6;
             color: #1f2937;
-            padding-bottom: 70px;
+            padding-bottom: 80px;
         }
         header {
             background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
-            padding: 20px;
+            padding: 20px 16px 15px 16px;
             text-align: center;
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
@@ -31,38 +31,64 @@
         }
         header h1 {
             font-size: 1.8rem;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
         header p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.9;
+            margin-bottom: 12px;
         }
+        /* Search Bar */
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            background: white;
+            border-radius: 25px;
+            padding: 6px 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 8px;
+            font-size: 0.9rem;
+            color: #374151;
+        }
+
         .container {
             padding: 16px;
             max-width: 600px;
             margin: 0 auto;
         }
+
+        /* Ad Banner Placeholder */
         .banner-ad {
             background-color: #e5e7eb;
             border: 2px dashed #9ca3af;
             text-align: center;
             padding: 12px;
             border-radius: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             font-size: 0.85rem;
             color: #4b5563;
         }
+
         .section-title {
             font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 12px;
             color: #374151;
         }
+
+        /* Grid Categories */
         .grid-menu {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         .card {
             background: white;
@@ -80,17 +106,19 @@
         }
         .card .icon {
             font-size: 2.2rem;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .card h3 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #1f2937;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .card p {
             font-size: 0.75rem;
             color: #6b7280;
         }
+
+        /* Action Button */
         .action-btn {
             display: block;
             width: 100%;
@@ -104,19 +132,44 @@
             text-align: center;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         .action-btn:active {
             background-color: #1d4ed8;
         }
+
+        /* Filter Chips */
+        .filter-chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+        .chip {
+            background: #e5e7eb;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            cursor: pointer;
+            color: #4b5563;
+        }
+        .chip.active {
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Job List */
         .job-list {
             background: white;
             border-radius: 16px;
-            padding: 16px;
+            padding: 12px 16px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .job-item {
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #f3f4f6;
             display: flex;
             justify-content: space-between;
@@ -128,22 +181,112 @@
         .job-info h4 {
             font-size: 0.95rem;
             color: #1f2937;
+            margin-bottom: 3px;
         }
         .job-info span {
             font-size: 0.75rem;
             color: #9ca3af;
         }
+        .job-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-weight: bold;
+        }
         .job-price {
             font-weight: bold;
             color: #16a34a;
+            font-size: 0.95rem;
+            text-align: right;
+        }
+
+        /* Modal / Pop-up Form */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 16px;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .modal-content h3 {
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
             font-size: 0.9rem;
         }
-        footer {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #9ca3af;
-            margin-top: 30px;
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-cancel {
+            background: #9ca3af;
+            color: white;
+            border: none;
             padding: 10px;
+            border-radius: 8px;
+            flex: 1;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-submit {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            flex: 1;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Bottom Nav Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #e5e7eb;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+        }
+        .nav-item {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.7rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .nav-item .nav-icon {
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .nav-item.active {
+            color: #2563eb;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -152,60 +295,72 @@
     <header>
         <h1>SukiRaket</h1>
         <p>Barangay Micro-Jobs & Pet Care Hub</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="filterJobs()" placeholder="🔍 Maghanap ng raket o barangay...">
+        </div>
     </header>
 
     <div class="container">
         
-        <!-- Pwede mong ilagay ang Monetag/HilltopAds script dito o sa gilid -->
+        <!-- Ad Placeholder -->
         <div class="banner-ad">
             [ Ad Placeholder / Ilagay ang Monetag script dito ]
         </div>
 
         <div class="section-title">Pumili ng Kategorya</div>
         <div class="grid-menu">
-            <div class="card" onclick="alert('Bukod-tanging Pet Care: Pagpapakain, Dog Walking, at iba pa.')">
+            <div class="card" onclick="filterCategory('Pet Care')">
                 <div class="icon">🐾</div>
                 <h3>Pet Care</h3>
                 <p>Alaga at Pakain</p>
             </div>
-            <div class="card" onclick="alert('Errands: Pila service, Pabili, Palengke runner.')">
+            <div class="card" onclick="filterCategory('Errands')">
                 <div class="icon">🛒</div>
                 <h3>Errands</h3>
                 <p>Pabili at Pila</p>
             </div>
-            <div class="card" onclick="alert('Home Help: Pagdidilig ng halaman, Car wash, Tapon basura.')">
+            <div class="card" onclick="filterCategory('Home Help')">
                 <div class="icon">🧹</div>
                 <h3>Home Help</h3>
                 <p>Linis at Ayos</p>
             </div>
-            <div class="card" onclick="alert('Tech & Support: Pagtulong sa cellphone, printing, at iba pa.')">
+            <div class="card" onclick="filterCategory('Tech Support')">
                 <div class="icon">📱</div>
                 <h3>Tech Support</h3>
                 <p>Tulong sa Gadget</p>
             </div>
         </div>
 
-        <button class="action-btn" onclick="alert('Form para mag-post ng raket ay lalabas dito.')">+ Mag-post ng Raket / Trabaho</button>
+        <button class="action-btn" onclick="openModal()">+ Mag-post ng Raket / Trabaho</button>
 
         <div class="section-title">Mga Bagong Raket sa Paligid</div>
-        <div class="job-list">
-            <div class="job-item">
+
+        <!-- Filter Chips -->
+        <div class="filter-chips">
+            <div class="chip active" onclick="filterCategory('All')">Lahat</div>
+            <div class="chip" onclick="filterCategory('Pet Care')">Pet Care</div>
+            <div class="chip" onclick="filterCategory('Errands')">Errands</div>
+            <div class="chip" onclick="filterCategory('Home Help')">Home Help</div>
+        </div>
+
+        <div class="job-list" id="jobList">
+            <div class="job-item" data-category="Pet Care">
                 <div class="job-info">
-                    <h4>Pakain ng Aso (Brgy. Hall area)</h4>
+                    <h4>Pakain ng Aso (Brgy. Hall area) <span class="job-badge">Open</span></h4>
                     <span>20 minuto ang nakalipas • 0.5 km</span>
                 </div>
                 <div class="job-price">₱150</div>
             </div>
-            <div class="job-item">
+            <div class="job-item" data-category="Errands">
                 <div class="job-info">
-                    <h4>Pila sa Bayad Center</h4>
+                    <h4>Pila sa Bayad Center <span class="job-badge">Open</span></h4>
                     <span>Kanina lang • 1.2 km</span>
                 </div>
                 <div class="job-price">₱100</div>
             </div>
-            <div class="job-item">
+            <div class="job-item" data-category="Home Help">
                 <div class="job-info">
-                    <h4>Pagdidilig ng mga Halaman</h4>
+                    <h4>Pagdidilig ng mga Halaman <span class="job-badge">Open</span></h4>
                     <span>1 oras ang nakalipas • 0.3 km</span>
                 </div>
                 <div class="job-price">₱120</div>
@@ -214,14 +369,123 @@
 
     </div>
 
-    <footer>
-        &copy; 2026 SukiRaket. Libreng Serbisyo sa Komunidad.
-    </footer>
+    <!-- Pop-up Modal Form -->
+    <div class="modal" id="jobModal">
+        <div class="modal-content">
+            <h3>Mag-post ng Bagong Raket</h3>
+            <input type="text" id="jobTitle" placeholder="Ano ang ipagagawa? (hal. Pakain ng Pusa)">
+            <select id="jobCategory">
+                <option value="Pet Care">Pet Care</option>
+                <option value="Errands">Errands</option>
+                <option value="Home Help">Home Help</option>
+                <option value="Tech Support">Tech Support</option>
+            </select>
+            <input type="text" id="jobLocation" placeholder="Barangay / Lokasyon">
+            <input type="number" id="jobPrice" placeholder="Magkano ang ibabayad? (₱)">
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeModal()">I-cancel</button>
+                <button class="btn-submit" onclick="addJob()">I-post Na</button>
+            </div>
+        </div>
+    </div>
 
-    <!-- Dito mo pwede ilagay ang JavaScript o Monetag Ad Scripts kung kinakailangan -->
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav">
+        <div class="nav-item active">
+            <span class="nav-icon">🏠</span>
+            Home
+        </div>
+        <div class="nav-item" onclick="alert('Feature coming soon!')">
+            <span class="nav-icon">📝</span>
+            My Posts
+        </div>
+        <div class="nav-item" onclick="alert('Feature coming soon!')">
+            <span class="nav-icon">💬</span>
+            Messages
+        </div>
+        <div class="nav-item" onclick="alert('Feature coming soon!')">
+            <span class="nav-icon">👤</span>
+            Profile
+        </div>
+    </div>
+
     <script>
-        // Placeholder para sa future features
-        console.log("SukiRaket PWA Loaded successfully!");
+        function openModal() {
+            document.getElementById('jobModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('jobModal').style.display = 'none';
+        }
+
+        function addJob() {
+            const title = document.getElementById('jobTitle').value;
+            const category = document.getElementById('jobCategory').value;
+            const location = document.getElementById('jobLocation').value;
+            const price = document.getElementById('jobPrice').value;
+
+            if (!title || !price) {
+                alert('Paki-fill up ang Pamagat at Presyo!');
+                return;
+            }
+
+            const jobList = document.getElementById('jobList');
+            const newJob = document.createElement('div');
+            newJob.className = 'job-item';
+            newJob.setAttribute('data-category', category);
+            newJob.innerHTML = `
+                <div class="job-info">
+                    <h4>${title} (${location || 'Malapit sa iyo'}) <span class="job-badge">Open</span></h4>
+                    <span>Bago lang • 0.1 km</span>
+                </div>
+                <div class="job-price">₱${price}</div>
+            `;
+
+            jobList.prepend(newJob);
+            closeModal();
+
+            // Reset inputs
+            document.getElementById('jobTitle').value = '';
+            document.getElementById('jobLocation').value = '';
+            document.getElementById('jobPrice').value = '';
+
+            alert('Matagumpay na na-post ang iyong raket!');
+        }
+
+        function filterJobs() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.job-item');
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function filterCategory(cat) {
+            const items = document.querySelectorAll('.job-item');
+            const chips = document.querySelectorAll('.chip');
+
+            chips.forEach(chip => {
+                if (chip.textContent === cat || (cat === 'All' && chip.textContent === 'Lahat')) {
+                    chip.classList.add('active');
+                } else {
+                    chip.classList.remove('active');
+                }
+            });
+
+            items.forEach(item => {
+                if (cat === 'All' || item.getAttribute('data-category') === cat) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
